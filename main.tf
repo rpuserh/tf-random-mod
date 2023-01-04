@@ -2,15 +2,12 @@ variable "random_count" {
   type = number
 }
 
-resource "random_password" "password" {
+resource "random_id" "this" {
   count = var.random_count
 
-  length           = 16
-  special          = true
-  override_special = "!#$%&*()-_=+[]{}<>:?"
+  byte_length = 8
 }
 
 output "pass" {
-  value = random_password.password.*.result
-  sensitive = true
+  value = random_id.this.*.id
 }
