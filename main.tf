@@ -8,6 +8,6 @@ resource "random_id" "this" {
   byte_length = 8
 }
 
-output "pass" {
+output "ids" {
   value = random_id.this.*.id
 }
