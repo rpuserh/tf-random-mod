@@ -9,3 +9,8 @@ resource "random_password" "password" {
   special          = true
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
+
+output "pass" {
+  value = random_password.password.*.result
+  sensitive = true
+}
