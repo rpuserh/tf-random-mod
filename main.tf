@@ -11,7 +11,7 @@ resource "azurerm_resource_group" "this" {
 }
 
 resource "azurerm_redis_cache" "this" {
-  name                = "${env_name}-cache"
+  name                = "${var.env_name}-cache"
   location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
   capacity            = var.redis_capacity
