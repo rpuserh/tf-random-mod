@@ -39,7 +39,6 @@ resource "azurerm_redis_cache" "this" {
   tags = local.default_tags
 }
 
-output "connection_string" {
-  value     = azurerm_redis_cache.this.primary_connection_string
-  sensitive = true
+output "redis_name" {
+  value     = azurerm_redis_cache.this.name
 }
