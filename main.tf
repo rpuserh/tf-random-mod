@@ -9,9 +9,18 @@ variable "redis_capacity" {
   type = number
 }
 
+locals {
+  default_tags = {
+    owner =  = "rpapovyan@infra.st.dev"
+    createdBy = "rpapovyan@infra.st.dev"
+    squad = "infra"
+  }
+}
+
 resource "azurerm_resource_group" "this" {
   name     = "${var.env_name}-rg"
   location = "West US 2"
+  tags = local.default_tags
 }
 
 resource "azurerm_redis_cache" "this" {
@@ -26,6 +35,8 @@ resource "azurerm_redis_cache" "this" {
 
   redis_configuration {
   }
+  
+  tags = local.default_tags
 }
 
 output "redis_name" {
