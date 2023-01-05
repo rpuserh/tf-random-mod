@@ -1,3 +1,7 @@
+provider "azurerm" {
+  features {}
+}
+
 variable "env_name" {
   type = string
 }
